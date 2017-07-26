@@ -4,6 +4,7 @@ var browserSync = require('browser-sync').create();
 
 /* Optimizing  files */
 var useref = require('gulp-useref');
+var gulpif = require('gulp-if');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('cssnano');
@@ -52,7 +53,7 @@ gulp.task('useref', function(){
   return gulp.src('app/*.html')
     .pipe(useref())
     // Minifies only if it's a JavaScript file
-    .pipe(gulpIf('*.js', uglify()))
+    /*.pipe(gulpif('*.js', uglify()))*/
     /*.pipe(gulpIf('*.css', cssnano()))*/
     .pipe(gulp.dest('dist'))
 });
